@@ -1,0 +1,96 @@
+.boxbody {
+    width: 1000px;
+    height: auto;
+
+}
+.boxgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+}
+
+/* Box A contains the box, with a moving circle. 
+pauses when you hove over it */
+.boxA {
+    grid-column: 1;
+    width: 500px;
+    height: 500px;
+    border: 5px solid black;
+    background-color: blanchedalmond;
+}
+/* the circle inside the box */
+.boxA1 {
+    background-color: brown;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    animation: boxA1animation 2s ease-in-out forwards infinite alternate;
+}
+/* this is what happens when you hover over the box */
+.boxA:hover .boxA1 {
+    animation-play-state: paused;
+}
+/* keframe calls upon the boxA1animation above, and tells it 
+where to be and when */
+@keyframes boxA1animation {
+    0% {
+        transform: translateX(0)
+    }
+    33% {
+        transform: translateY(100%)
+    }
+    50% {
+        background-color: coral;
+    }
+    66% {
+        transform: translateX(100%) translateY(100%);
+    }
+    100% {
+        background-color: chocolate;
+        transform:translateX(100%);
+    }
+}
+
+/* box B plays infinitly when you hove your mouse over it */
+
+.boxB {
+    grid-column: 2;
+    width: 300px;
+    height: 500px;
+    border: 5px solid blue;
+    background-color: aqua;
+}
+/* the square inside of the aqua box with a blue frame */
+.boxB1 {
+    background-color: orange;
+    width: 50%;
+    height: 30%;
+    animation: boxB1Animation 1s linear forwards infinite paused;
+}
+/* this is how to make something happen when hover pver it */
+.boxB:hover .boxB1 {
+    animation-play-state:running;
+}
+/* keframe calls upon the boxA1animation above, and tells it 
+where to be and when */
+@keyframes boxB1Animation {
+    0% {
+        transform: translateX(0%);
+    }
+    25% {
+        transform:translateY(233%);
+        background-color: orange;
+    }
+    50% {
+        transform: translate(100%, 233%);
+        background-color: red;
+    }
+    75% {
+        transform:translateX(100%);
+        background-color: orange;
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
